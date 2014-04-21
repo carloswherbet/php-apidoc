@@ -300,11 +300,7 @@ class Builder
                             <hr>
                             {{ sandbox_form }}
                         </div>
-                        <div class="col-md-4">
-                            Headers
-                            <hr>Soon...
-                        </div>
-                        <div class="col-md-4">
+                        <div class="col-md-8">
                             Response
                             <hr>
                             <code id="response{{ elt_id }}"></code>

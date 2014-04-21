@@ -21,7 +21,7 @@
     "autoload": {
         "psr-0": { "Crada": "" }
     },
-    "target-dir": "Crada/Apidoc",
+    "target-dir": "Crada/apidoc",
     "extra": {
         "branch-alias": {
             "dev-master": "1.3-dev"

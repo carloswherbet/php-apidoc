@@ -33,18 +33,31 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">php-apidoc</a>
+          <a class="navbar-brand" href="/">WAWWWE API</a>
         </div>
         <div class="navbar-collapse collapse">
             <form class="navbar-form navbar-right">
                 <div class="form-group">
-                    Api key: <a href="javascript:void(0);" class="tooltipP" data-toggle="tooltip" title="Api key header with api key (key) and api key value (value) "><span class="glyphicon glyphicon-info-sign"></span></a>
+                    X-User-Token:
+                    <!--<a href="javascript:void(0);" class="tooltipP" data-toggle="tooltip" title="Api key header with api key (key) and api key value (value) "><span class="glyphicon glyphicon-info-sign"></span></a>-->
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control input-sm" placeholder="key" id="apikey_key">
+                    <input type="text" class="form-control input-sm" placeholder="key" id="x-user-token" value="X-User-Token">
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control input-sm" placeholder="value" id="apikey_value">
+                    <input type="text" class="form-control input-sm" placeholder="value" id="x-user-token-value" value="">
+                </div>
+            </form>
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    X-Access-Token:
+                    <!--<a href="javascript:void(0);" class="tooltipP" data-toggle="tooltip" title="Api key header with api key (key) and api key value (value) "><span class="glyphicon glyphicon-info-sign"></span></a>-->
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control input-sm" placeholder="key" id="x-access-token" value="X-Access-Token">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control input-sm" placeholder="value" id="x-access-token-value" value="BB25668639D8CAB715CC7B576D9F7">
                 </div>
             </form>
         </div><!--/.nav-collapse -->
@@ -54,8 +67,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h5>Api URL</h5>
-                <input id="apiUrl" type="text" class="form-control input-sm" placeholder="http://api.mydomain.tld">
+                <!--<h5>Api URL</h5>-->
+                <input id="apiUrl" type="hidden" class="form-control input-sm" placeholder="http://wawwe.com/api/">
             </div>
         </div>
         <hr>
@@ -69,7 +82,7 @@
                 Generated on {{ date }}
             </div>
             <div class="col-md-6" align="right">
-                <a href="https://github.com/calinrada/php-apidoc" target="_blank">php-apidoc v {{ version }}</a>
+                <!-- <a href="https://github.com/calinrada/php-apidoc" target="_blank">php-apidoc v {{ version }}</a> -->
             </div>
         </div>
 
@@ -155,7 +168,12 @@
                 });
             };
             var st_headers = {};
-            st_headers[$('#apikey_key').val()] = $('#apikey_value').val();
+            st_headers[$('#x-access-token').val()] = $('#x-access-token-value').val();
+
+            if ($('#x-user-token-value').val() != '') {
+                st_headers[$('#x-user-token').val()] = $('#x-user-token-value').val();
+            }
+            console.log($(form).attr('action'))
             $.ajax({
                 url: $('#apiUrl').val() + $(form).attr('action'),
                 data: $(form).serialize(),

@@ -5,7 +5,7 @@
 namespace Crada\Apidoc\View;
 
 /**
- * Crada\Apidoc\View\ViewInterface
+ * Crada\apidoc\View\ViewInterface
  *
  * @license   http://opensource.org/licenses/bsd-license.php The BSD License
  * @author    Calin Rada <rada.calin@gmail.com>
