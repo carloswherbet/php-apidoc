@@ -148,7 +148,7 @@
         $('body').on('click', '.send', function(e) {
             e.preventDefault();
             var form = $(this).closest('form');
-            var matchedParamsInRoute = $(form).attr('action').match(/{\w+}$/);
+            var matchedParamsInRoute = $(form).attr('action').match(/{\w+}/g);
             var theId = $(this).attr('rel');
             if (matchedParamsInRoute) {
                 $("form#" + $(form).attr('id') + " input[type=text]").each(function() {
